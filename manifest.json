@@ -1,5 +1,21 @@
 {
   "name": "Where is my ",
   "version": "1.0",
-  "manifest_version": 3
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "input"],
+  "action": {
+    "default_popup": "main.html"
+  },
+  "commands": {
+    "run": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Run \"foo\" on the current page."
+    }
+  }
 }
