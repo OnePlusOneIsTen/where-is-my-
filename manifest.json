@@ -5,11 +5,19 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "activeTab", "scripting", "input"],
+  "permissions": [
+    "storage", 
+    "activeTab", 
+    "scripting", 
+    "input"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/customsearch/v1/*"
+  ],
   "commands": {
     "run": {
       "suggested_key": "Ctrl+Shift+Y",
-      "description": "Run \"foo\" on the current page."
+      "description": "Fix the highlighted text."
     }
   },
   "action": {
