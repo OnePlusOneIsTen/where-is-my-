@@ -10,7 +10,7 @@ function getSelectionText() {
 }
 
 async function getFixedText(text) {
-	const key = 'AIzaSyDOR3ePwuV4MCa8PXsjGJ8qzG8tvKWCSGE';
+	const key = 'AIzaSyBUjJS_wxVnRNYozdqzj8FaUJPALNLRb8g';
 	const cx = '14ba5b48935534e05';
 	const rootUrl = 'https://www.googleapis.com/customsearch/v1';
 	const url = `${rootUrl}?key=${key}&cx=${cx}&q=${text}`;
