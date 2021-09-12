@@ -1,9 +1,9 @@
 chrome.commands.onCommand.addListener(async (command) => {
   if (command == 'run') {
     console.log(`Command "${command}" triggered`);
-    const tab = await getCurrentTab().catch(() => {})
+    const tab = await getCurrentTab().catch(() => {});
     if (tab === null || tab.url.startsWith('chrome://')) {
-      return
+      return;
     }
     chrome.scripting.executeScript({
       target: { tabId: tab.id },

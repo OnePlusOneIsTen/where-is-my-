@@ -1,0 +1,11 @@
+#container {
+  width: 20em;
+}
+
+.section {
+  font-weight: 500;
+}
+
+.content {
+  font-weight: normal;
+}

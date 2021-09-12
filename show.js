@@ -10,6 +10,7 @@ function getSelectionText() {
 }
 
 async function getFixedText(text) {
+  if (text.length === 0) return text;
 	const key = 'AIzaSyDOR3ePwuV4MCa8PXsjGJ8qzG8tvKWCSGE';
 	const cx = '14ba5b48935534e05';
 	const rootUrl = 'https://www.googleapis.com/customsearch/v1';
@@ -22,16 +23,19 @@ async function getFixedText(text) {
 	return text;
 }
 
-function run(text) {
-  var field = document.activeElement;
-  if (field.selectionStart != undefined) {
-  	var start = field.selectionStart;
-    var end = field.selectionEnd;
-    selectedText = field.value.substring(start, end);
-    field.value = field.value.slice(0, start) + text + field.value.slice(end);
+chrome.runtime.onMessage.addListener(
+  function(request, sender, res) {
+    if (request.req == "show") {
+			const text = getSelectionText();
+			getFixedText(text).then((
+        (fix) => {
+          res({
+            text: text,
+            fix: fix
+          });
+        }
+      ));
+		}
+		return true;
   }
-}
-
-getFixedText(getSelectionText()).then(
-	(fixedText) => run(fixedText)
 );
